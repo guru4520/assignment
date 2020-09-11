@@ -1,0 +1,170 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Q. Write a decorator function for your taking input for you any kind of function you want to build.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def get_input(get_ans):\n",
+    "    def fact():\n",
+    "        n = int(input(\"Enter a number : \"))\n",
+    "        get_ans(n)\n",
+    "    return fact    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "@get_input\n",
+    "def factorial(num):\n",
+    "    fact = 1\n",
+    "    for i in range(1,num + 1):\n",
+    "        fact = fact * i\n",
+    "    print(\"The factorial of \",num,\" is \",fact)    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Enter a number : 5\n",
+      "The factorial of  5  is  120\n"
+     ]
+    }
+   ],
+   "source": [
+    "factorial()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#  Q. For this challenge you need to develop a Python program to open a file in read only mode and trywriting something to it and handle the subsequent errors using Exception Handling."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "file = open(\"pythonProgramming.txt\",\"w\")\n",
+    "file.write(\"I am doing the file handling in python programming.\")\n",
+    "file.close()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "I am doing the file handling in python programming.\n"
+     ]
+    }
+   ],
+   "source": [
+    "file = open(\"pythonProgramming.txt\",\"r\")\n",
+    "filedata = file.read()\n",
+    "print(filedata)\n",
+    "file.close()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "not writable\n"
+     ]
+    }
+   ],
+   "source": [
+    "try:\n",
+    "    file = open(\"pythonProgramming.txt\",\"r\")\n",
+    "    file.write(\"kolhapur\")\n",
+    "    file.close()\n",
+    "    print(\"success\")\n",
+    "except Exception as e:\n",
+    "    print(e)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "success\n"
+     ]
+    }
+   ],
+   "source": [
+    "try:\n",
+    "    file = open(\"pythonProgramming.txt\",\"w\")\n",
+    "    file.write(\"kolhapur\")\n",
+    "    file.close()\n",
+    "    print(\"success\")\n",
+    "except Exception as e:\n",
+    "    print(e)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
